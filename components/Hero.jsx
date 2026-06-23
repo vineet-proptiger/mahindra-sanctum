@@ -359,7 +359,7 @@ const Hero = ({ setIsOpen }) => {
 
         {/* Subtitle */}
         <p className="hero-subtitle">
-          <span style={{ fontSize: '0.85em', fontWeight: 500, textTransform: 'none' }}>At Citadel Township, Pimpri</span>
+          <span style={{ fontSize: '0.85em', fontWeight: 500, textTransform: 'none' }}>At Citadel Township, Pimpri Pune</span>
         </p>
         {/* Bullet Points */}
         <div className="hero-bullets" style={{ marginBottom: '24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
