@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const base = 'https://mahindrasanctumpune.in'
+  const base = 'https://mahindrassanctumpimpri.com'
 
   return [
     {

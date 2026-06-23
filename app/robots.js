@@ -5,7 +5,7 @@ export default function robots() {
       allow: '/',
       disallow: '',
     },
-    sitemap: 'https://mahindrasanctumpune.in/sitemap.xml',
+    sitemap: 'https://mahindrassanctumpimpri.com/sitemap.xml',
   }
 }
 

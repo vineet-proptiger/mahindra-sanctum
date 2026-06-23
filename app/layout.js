@@ -51,11 +51,13 @@ export default function RootLayout({ children }) {
               "@type": "Article",
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://mahindrasanctumpune.in/"
+                "@id": "https://mahindrassanctumpimpri.com/"
               },
+              "url": "https://mahindrassanctumpimpri.com",
+              "name": "Mahindra Sanctum | Premium Residences in Pimpri, Pune",
               "headline": "Mahindra Sanctum | Premium 2 & 3 BHK Homes in Pimpri, Pune",
               "description": "Mahindra Sanctum, Premium 2 & 3 BHK Homes in Pimpri, Pune. Excellent Metro & Highway Connectivity.",
-              "image": "https://mahindrasanctumpune.in/_next/image?url=%2Fimages%2Fhero%2Fbanner1.webp&w=1200&q=75",
+              "image": "https://mahindrassanctumpimpri.com/_next/image?url=%2Fimages%2Fhero%2Fbanner1.webp&w=1200&q=75",
               "author": {
                 "@type": "Organization",
                 "name": "Proptiger Marketing Services Pvt Ltd",
