@@ -12,16 +12,28 @@ const plans = [
   { label: '3 BHK',           img: masterplanImages.bhk3 },
 ]
 
+const CurvedCorners = ({ bg = '#ffffff' }) => {
+  const BORDER_COLOR = '#9C846C';
+  const corners = [
+    { top: '-1px', left: '-1px', borderRight: `1px solid ${BORDER_COLOR}`, borderBottom: `1px solid ${BORDER_COLOR}`, borderBottomRightRadius: '18px' },
+    { top: '-1px', right: '-1px', borderLeft: `1px solid ${BORDER_COLOR}`, borderBottom: `1px solid ${BORDER_COLOR}`, borderBottomLeftRadius: '18px' },
+    { bottom: '-1px', left: '-1px', borderRight: `1px solid ${BORDER_COLOR}`, borderTop: `1px solid ${BORDER_COLOR}`, borderTopRightRadius: '18px' },
+    { bottom: '-1px', right: '-1px', borderLeft: `1px solid ${BORDER_COLOR}`, borderTop: `1px solid ${BORDER_COLOR}`, borderTopLeftRadius: '18px' },
+  ]
+  return corners.map((c, i) => (
+    <span key={i} style={{ position: 'absolute', ...c, width: '22px', height: '22px', background: bg, display: 'block', zIndex: 10 }} />
+  ))
+}
+
 const MasterPlan = ({ setIsOpen }) => {
   const [activePlan, setActivePlan] = useState(0)
 
   return (
     <section id="masterplan" style={{
-      padding: '56px 0',
+      padding: '72px 0',
       background: '#ffffff',
-      borderBottom: '1px solid #f0f0f0',
     }}>
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto px-4 md:px-8 max-w-[1200px]">
 
         {/* Section Header */}
         <div style={{ marginBottom: '40px', textAlign: 'center' }} data-aos="fade-up">
@@ -33,131 +45,108 @@ const MasterPlan = ({ setIsOpen }) => {
           }}>
             FLOOR PLANS &amp; LAYOUT
           </h2>
-          {/* <p style={{ fontFamily: F_SANS, fontSize: '14px', color: '#6b7280', margin: 0 }}>
-            Thoughtfully designed spaces for modern business needs
-          </p> */}
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 items-stretch">
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
 
           {/* LEFT — Tabs */}
-          <div className="w-full lg:w-[32%]" data-aos="fade-right">
+          <div className="w-full lg:w-[35%]" data-aos="fade-right">
             <div style={{
-              background: '#fff', borderRadius: '8px',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
-              border: '1px solid #D5C2A8', overflow: 'hidden',
+              background: '#fff', 
+              position: 'relative',
+              border: '1px solid #9C846C', 
+              height: '100%',
+              display: 'flex', flexDirection: 'column'
             }}>
+              <CurvedCorners bg="#ffffff" />
+              
               {/* Tab header */}
               <div style={{
-                background: 'linear-gradient(135deg, #111827, #1f2937)',
-                padding: '16px 20px', position: 'relative', overflow: 'hidden',
+                background: '#FAF5F5',
+                padding: '24px 28px', borderBottom: '1px solid #D5C2A8'
               }}>
-                <div style={{
-                  position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
-                  background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
-                }} />
                 <p style={{
-                  fontFamily: F_JOST, fontWeight: '700', fontSize: '13px',
-                  color: '#fff', margin: 0, letterSpacing: '0.06em', textTransform: 'uppercase'
+                  fontFamily: F_JOST, fontWeight: '700', fontSize: '14px',
+                  color: '#3A2A0E', letterSpacing: '0.1em',
+                  textTransform: 'uppercase', margin: 0
                 }}>
                   Select Floor Plan
                 </p>
-                <p style={{
-                  fontFamily: F_SANS, fontSize: '11px',
-                  color: 'rgba(255,255,255,0.5)', margin: '3px 0 0'
-                }}>
-                  Click to preview
-                </p>
               </div>
 
-              {/* Tabs */}
-              {plans.map((plan, idx) => (
-                <button key={idx} onClick={() => setActivePlan(idx)}
-                  style={{
-                    width: '100%', textAlign: 'left',
-                    padding: '15px 20px',
-                    background: activePlan === idx ? 'var(--color-gold-bg)' : '#fff',
-                    border: 'none',
-                    borderLeft: activePlan === idx ? '3px solid var(--color-gold)' : '3px solid transparent',
-                    borderBottom: idx < plans.length - 1 ? '1px solid #f5f5f5' : 'none',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px',
-                  }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    {/* Number badge */}
-                    <span style={{
-                      width: '28px', height: '28px', borderRadius: '8px', flexShrink: 0,
-                      background: activePlan === idx ? 'var(--color-gold)' : '#f3f4f6',
-                      color: activePlan === idx ? '#fff' : '#9ca3af',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '11px', fontFamily: F_JOST, fontWeight: '800',
-                      transition: 'all 0.2s',
-                    }}>
-                      {String(idx + 1).padStart(2, '0')}
-                    </span>
-                    <span style={{
-                      fontSize: '13px', fontWeight: '700', fontFamily: F_JOST,
-                      color: activePlan === idx ? 'var(--color-gold)' : '#374151',
-                      transition: 'color 0.2s',
-                    }}>{plan.label}</span>
-                  </div>
-                  {/* Arrow */}
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                    stroke={activePlan === idx ? 'var(--color-gold)' : '#d1d5db'}
-                    strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </button>
-              ))}
+              {/* Tab buttons */}
+              <div style={{ flex: 1, padding: '16px 0' }}>
+                {plans.map((plan, i) => {
+                  const isActive = activePlan === i
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => setActivePlan(i)}
+                      style={{
+                        width: '100%', display: 'flex', alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '20px 28px',
+                        background: isActive ? '#FDF8F6' : 'transparent',
+                        borderLeft: isActive ? '3px solid #9C846C' : '3px solid transparent',
+                        borderBottom: '1px solid #EAE5D9',
+                        transition: 'all 0.3s ease',
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                        <span style={{
+                          width: '28px', height: '28px', borderRadius: '50%',
+                          background: isActive ? '#9C846C' : '#F4EFE6',
+                          color: isActive ? '#fff' : '#684C1B',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          fontSize: '11px', fontWeight: '700', fontFamily: F_JOST
+                        }}>
+                          0{i + 1}
+                        </span>
+                        <span style={{
+                          fontFamily: F_SANS, fontWeight: isActive ? '700' : '600',
+                          fontSize: '15px',
+                          color: isActive ? '#3A2A0E' : '#6b7280'
+                        }}>
+                          {plan.label}
+                        </span>
+                      </div>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke={isActive ? '#9C846C' : '#d1d5db'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </button>
+                  )
+                })}
+              </div>
 
-              {/* Info box */}
-              <div style={{
-                margin: '12px', padding: '12px',
-                background: 'var(--color-gold-bg)', borderRadius: '10px',
-                border: '1px dashed var(--color-gold-light)',
-              }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                    stroke="var(--color-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                    style={{ flexShrink: 0, marginTop: '1px' }}>
-                    <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" />
-                    <line x1="12" y1="16" x2="12.01" y2="16" />
-                  </svg>
-                  <p style={{
-                    fontFamily: F_SANS, fontSize: '11px', color: '#6b7280',
-                    margin: 0, lineHeight: 1.6
-                  }}>
-                    Register to receive detailed floor plans &amp; pricing directly to your inbox.
-                  </p>
-                </div>
+              {/* Note */}
+              <div style={{ padding: '24px 28px', borderTop: '1px solid #D5C2A8', background: '#ffffff' }}>
+                <p style={{ fontFamily: F_SANS, fontSize: '13px', color: '#684C1B', margin: 0, lineHeight: 1.6 }}>
+                  Register to receive detailed floor plans &amp; pricing directly to your inbox.
+                </p>
               </div>
             </div>
           </div>
 
           {/* RIGHT — Image preview */}
-          <div className="w-full lg:flex-1" data-aos="zoom-in">
+          <div className="w-full lg:flex-1" data-aos="fade-left">
             <div style={{
-              position: 'relative', borderRadius: '8px', overflow: 'hidden',
-              border: '1px solid #D5C2A8',
-              boxShadow: '0 10px 36px var(--color-shadow-inner)',
-              height: '100%', minHeight: '400px',
+              position: 'relative', 
+              border: '1px solid #9C846C',
+              height: '100%', minHeight: '450px',
+              background: '#ffffff'
             }}>
-              {/* Brand top accent */}
-              <div style={{
-                position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
-                background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))', zIndex: 10,
-              }} />
+              <CurvedCorners bg="#ffffff" />
 
               {/* Plan label top-left */}
               <div style={{
-                position: 'absolute', top: '16px', left: '16px', zIndex: 10,
-                background: 'var(--color-gold)', opacity: 0.9, backdropFilter: 'blur(6px)',
-                borderRadius: '8px', padding: '5px 12px',
+                position: 'absolute', top: '24px', left: '24px', zIndex: 10,
+                background: '#3A2A0E',
+                padding: '6px 14px',
               }}>
                 <span style={{
                   color: '#fff', fontSize: '11px', fontFamily: F_JOST,
-                  fontWeight: '700', letterSpacing: '0.04em'
+                  fontWeight: '700', letterSpacing: '0.1em', textTransform: 'uppercase'
                 }}>
                   {plans[activePlan].label}
                 </span>
@@ -165,48 +154,55 @@ const MasterPlan = ({ setIsOpen }) => {
 
               {/* Blurred image */}
               <Image src={plans[activePlan].img} alt={plans[activePlan].label} fill
-                style={{ objectFit: 'cover', filter: 'blur(5px)', transform: 'scale(1.06)' }} />
+                style={{ objectFit: 'cover', filter: 'blur(6px)', transform: 'scale(1.04)' }} />
 
               {/* Dark overlay */}
               <div style={{
                 position: 'absolute', inset: 0,
-                background: 'rgba(17,24,39,0.45)',
+                background: 'rgba(58, 42, 14, 0.45)', // Dark brown tint
               }} />
 
               {/* CTA in center */}
               <div style={{
                 position: 'absolute', inset: 0, zIndex: 5,
                 display: 'flex', flexDirection: 'column',
-                alignItems: 'center', justifyContent: 'center', gap: '12px',
+                alignItems: 'center', justifyContent: 'center', gap: '16px',
               }}>
                 <div style={{
-                  width: '52px', height: '52px', borderRadius: '50%',
-                  background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(4px)',
-                  border: '2px solid rgba(255,255,255,0.3)',
+                  width: '56px', height: '56px', borderRadius: '50%',
+                  border: '1px solid rgba(255,255,255,0.4)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  marginBottom: '4px',
+                  background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(4px)'
                 }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                    stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M9 21V9" />
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <line x1="3" y1="9" x2="21" y2="9" />
+                    <line x1="9" y1="21" x2="9" y2="9" />
                   </svg>
                 </div>
+                
                 <p style={{
-                  fontFamily: F_JOST, fontSize: '13px', color: 'rgba(255,255,255,0.7)',
-                  margin: 0, fontWeight: '600', letterSpacing: '0.04em'
+                  fontFamily: F_SANS, color: '#fff', fontSize: '14px',
+                  margin: 0, textShadow: '0 2px 4px rgba(0,0,0,0.5)', fontWeight: '500'
                 }}>
                   Register to Unlock Floor Plan
                 </p>
-                <button onClick={() => setIsOpen(true)} className="btn-gold"
-                  style={{ padding: '11px 32px', fontSize: '13px', letterSpacing: '0.1em' }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                
+                <button
+                  onClick={() => setIsOpen(true)}
+                  className="btn-gold"
+                  style={{ width: '100%', marginTop: '8px' }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                     <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                   </svg>
                   View Plan
                 </button>
               </div>
+
             </div>
           </div>
 

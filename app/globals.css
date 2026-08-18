@@ -242,153 +242,36 @@
 /* ─── Components ────────────────────────────────────────────── */
 @layer components {
 
-  /* ══ PRIMARY RED BUTTON ══ */
-  .btn-gold {
+  /* ══ UNIFIED PREMIUM BUTTON ══ */
+  .btn-gold, .btn-gold-outline, .btn-primary, .btn-brand {
     position: relative;
     overflow: hidden;
-    background: var(--color-gold);
-    color: #fff;
-    border: 2px solid var(--color-gold);
-    border-radius: var(--btn-radius-pill);
-    padding: 12px 32px;
-    font-family: var(--font-jost), 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    cursor: pointer;
-    transition: all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    box-shadow: 0 4px 14px rgba(201, 169, 110, 0.35);
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  /* Shimmer sweep on hover */
-  .btn-gold::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-    transform: skewX(-20deg);
-    transition: left 0.55s ease;
-  }
-
-  .btn-gold:hover::before {
-    left: 130%;
-  }
-
-  .btn-gold:hover {
-    background: #ffffff !important;
-    color: var(--color-gold) !important;
-    border-color: var(--color-gold);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(201, 169, 110, 0.30);
-  }
-
-  .btn-gold:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 10px rgba(201, 169, 110, 0.20);
-  }
-
-  /* ══ OUTLINED RED BUTTON ══ */
-  .btn-gold-outline {
-    position: relative;
-    overflow: hidden;
-    background: transparent;
-    color: var(--color-gold);
-    border: 2px solid var(--color-gold);
-    border-radius: var(--btn-radius-pill);
-    padding: 12px 32px;
-    font-family: var(--font-jost), 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    cursor: pointer;
-    transition: all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .btn-gold-outline:hover {
-    background: var(--color-gold) !important;
+    background: #3A2A0E !important;
     color: #ffffff !important;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(201, 169, 110, 0.30);
-  }
-
-  /* ══ DARK PRIMARY BUTTON (Now Gold Theme) ══ */
-  .btn-primary {
-    position: relative;
-    overflow: hidden;
-    background: var(--color-gold);
-    color: #fff;
-    border: 2px solid var(--color-gold);
-    border-radius: var(--btn-radius-pill);
-    padding: 12px 32px;
-    font-family: var(--font-jost), 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    cursor: pointer;
-    transition: all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    box-shadow: 0 4px 14px rgba(201, 169, 110, 0.35);
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .btn-primary:hover {
-    background: #ffffff !important;
-    color: var(--color-gold) !important;
-    border-color: var(--color-gold);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(201, 169, 110, 0.30);
-  }
-
-  .btn-primary:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 10px rgba(201, 169, 110, 0.20);
-  }
-
-  /* ══ BRAND RED BUTTON (Krisumi style) ══ */
-  .btn-brand {
-    background: var(--color-brand);
-    color: #fff;
-    border: 2px solid var(--color-brand) !important;
+    border: 1.5px solid #3A2A0E !important;
+    border-radius: 0 !important;
     padding: 14px 32px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
     font-family: var(--font-jost), 'Montserrat', sans-serif;
-    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.15em;
     cursor: pointer;
     transition: all 0.3s ease !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-transform: uppercase;
     white-space: nowrap;
+    box-shadow: none !important;
   }
 
-  .btn-brand:hover {
-    background: #ffffff !important;
-    color: var(--color-brand) !important;
-    border-color: var(--color-brand) !important;
-    transform: translateY(-3px);
+  .btn-gold:hover, .btn-gold-outline:hover, .btn-primary:hover, .btn-brand:hover {
+    background: #C9A96E !important;
+    color: #3A2A0E !important;
+    border-color: #C9A96E !important;
   }
+  
 
   /* ══ FLOATING TAB ══ */
   .btn-floating-tab {

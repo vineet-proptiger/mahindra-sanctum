@@ -24,12 +24,25 @@ const locationCategories = [
   },
 ]
 
+const CurvedCorners = ({ bg = '#ffffff' }) => {
+  const BORDER_COLOR = '#9C846C';
+  const corners = [
+    { top: '-1px', left: '-1px', borderRight: `1px solid ${BORDER_COLOR}`, borderBottom: `1px solid ${BORDER_COLOR}`, borderBottomRightRadius: '18px' },
+    { top: '-1px', right: '-1px', borderLeft: `1px solid ${BORDER_COLOR}`, borderBottom: `1px solid ${BORDER_COLOR}`, borderBottomLeftRadius: '18px' },
+    { bottom: '-1px', left: '-1px', borderRight: `1px solid ${BORDER_COLOR}`, borderTop: `1px solid ${BORDER_COLOR}`, borderTopRightRadius: '18px' },
+    { bottom: '-1px', right: '-1px', borderLeft: `1px solid ${BORDER_COLOR}`, borderTop: `1px solid ${BORDER_COLOR}`, borderTopLeftRadius: '18px' },
+  ]
+  return corners.map((c, i) => (
+    <span key={i} style={{ position: 'absolute', ...c, width: '22px', height: '22px', background: bg, display: 'block', zIndex: 10 }} />
+  ))
+}
+
 const Location = () => {
 
   return (
     <section id="location" style={{
       padding: '72px 0',
-      background: '#EAE5DC', // Matched to the screenshot background
+      background: '#ffffff', // Clean white background for the section
     }}>
       <div className="container mx-auto px-4 md:px-8 max-w-[1200px]">
 
@@ -47,73 +60,60 @@ const Location = () => {
 
         <div className="flex flex-col lg:flex-row gap-8 items-stretch">
 
-          {/* LEFT — Accordion */}
+          {/* LEFT — Premium List */}
           <div className="w-full lg:w-[45%]" data-aos="fade-right">
-            <div style={{ border: '1px solid #D5C2A8', background: '#EAE5DC' }}>
+            <div style={{
+              position: 'relative',
+              border: '1px solid #9C846C',
+              background: '#ffffff',
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              <CurvedCorners bg="#ffffff" />
+              
+              <div style={{ padding: '40px 32px' }}>
+                {locationCategories.map((cat, ci) => (
+                  <div key={ci} style={{ marginBottom: ci === locationCategories.length - 1 ? 0 : '36px' }}>
+                    {/* Category Header */}
+                    <div style={{
+                      display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px'
+                    }}>
+                      <span style={{
+                        fontFamily: F_JOST, fontSize: '12px', fontWeight: '700',
+                        color: '#9C846C', letterSpacing: '0.15em', textTransform: 'uppercase'
+                      }}>{cat.category}</span>
+                      <div style={{ height: '1px', flex: 1, background: '#EAE5D9' }} />
+                    </div>
 
-              {/* Table Header */}
-              <div style={{
-                display: 'grid', gridTemplateColumns: '1.2fr 1fr',
-                background: '#9b2c2c', color: '#fff',
-                fontFamily: F_JOST, fontWeight: '600', fontSize: '13.5px',
-                letterSpacing: '0.04em', textTransform: 'uppercase',
-                borderBottom: '1px solid #D5C2A8',
-              }}>
-              <div style={{ padding: '10px 16px', borderRight: '1px solid #D5C2A8' }}>LANDMARK</div>
-                <div style={{ padding: '10px 16px', textAlign: 'center' }}>TIME</div>
+                    {/* Rows */}
+                    <div className="space-y-4">
+                      {cat.items.map((item, i) => (
+                        <div key={i} style={{
+                          display: 'flex', alignItems: 'center',
+                          fontFamily: F_SANS,
+                        }}>
+                          <span style={{ color: '#3A2A0E', fontWeight: '600', fontSize: '14.5px' }}>{item.name}</span>
+                          <div style={{ flex: 1, borderBottom: '1.5px dotted #D5C2A8', margin: '0 16px', opacity: 0.8, position: 'relative', top: '2px' }} />
+                          <span style={{ color: '#9C846C', fontWeight: '700', fontSize: '13px', letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>{item.dist}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
-
-              {/* Accordion Categories */}
-              {locationCategories.map((cat, ci) => (
-                <div key={ci}>
-                  {/* Category Header */}
-                  <div
-                    style={{
-                      width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                      background: '#c9a96e', color: '#fff',
-                      fontFamily: F_JOST, fontSize: '11px', fontWeight: '700',
-                      letterSpacing: '0.12em', textTransform: 'uppercase',
-                      padding: '9px 16px',
-                      borderBottom: '1px solid #D5C2A8',
-                    }}
-                  >
-                    <span>{cat.category}</span>
-                  </div>
-
-                  {/* Rows */}
-                  <div>
-                    {cat.items.map((item, i) => (
-                      <div key={i} style={{
-                        display: 'grid', gridTemplateColumns: '1.2fr 1fr',
-                        background: i % 2 === 0 ? '#F4EFE6' : '#EAE5DC',
-                        color: '#684C1B', fontFamily: F_SANS,
-                        fontSize: '13px', fontWeight: '600',
-                        borderBottom: '1px solid #D5C2A8',
-                      }}>
-                        <div style={{ padding: '10px 16px', borderRight: '1px solid #D5C2A8', display: 'flex', alignItems: 'center' }}>
-                          {item.name}
-                        </div>
-                        <div style={{ padding: '10px 16px', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                          {item.dist}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-
             </div>
           </div>
 
           {/* RIGHT — Map */}
           <div className="w-full lg:flex-1" data-aos="fade-left" style={{ minHeight: '420px' }}>
             <div style={{
-              overflow: 'hidden',
-              border: '1px solid #D5C2A8',
+              border: '1px solid #9C846C',
               height: '100%', minHeight: '420px',
               position: 'relative',
-              background: '#EAE5DC'
+              background: '#ffffff'
             }}>
+              <CurvedCorners bg="#ffffff" />
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3116.1816435098326!2d73.8089392!3d18.6294055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9884eaf0485%3A0x116f6d7a51f6c3eb!2sMahindra%20Lifespaces%20Pimpri%20Pune!5e1!3m2!1sen!2sin!4v1782205881875!5m2!1sen!2sin"
                 width="100%"

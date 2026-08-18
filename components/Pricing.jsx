@@ -47,6 +47,19 @@ const units = [
   */
 ];
 
+const CurvedCorners = ({ bg = '#f7f7f7' }) => {
+  const BORDER_COLOR = '#D5C2A8';
+  const corners = [
+    { top: '-1px', left: '-1px', borderRight: `1px solid ${BORDER_COLOR}`, borderBottom: `1px solid ${BORDER_COLOR}`, borderBottomRightRadius: '18px' },
+    { top: '-1px', right: '-1px', borderLeft: `1px solid ${BORDER_COLOR}`, borderBottom: `1px solid ${BORDER_COLOR}`, borderBottomLeftRadius: '18px' },
+    { bottom: '-1px', left: '-1px', borderRight: `1px solid ${BORDER_COLOR}`, borderTop: `1px solid ${BORDER_COLOR}`, borderTopRightRadius: '18px' },
+    { bottom: '-1px', right: '-1px', borderLeft: `1px solid ${BORDER_COLOR}`, borderTop: `1px solid ${BORDER_COLOR}`, borderTopLeftRadius: '18px' },
+  ]
+  return corners.map((c, i) => (
+    <span key={i} style={{ position: 'absolute', ...c, width: '22px', height: '22px', background: bg, display: 'block', zIndex: 10 }} />
+  ))
+}
+
 const Pricing = ({ setIsOpen }) => {
   return (
     <section
@@ -85,79 +98,86 @@ const Pricing = ({ setIsOpen }) => {
           </p> */}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {units.map((unit, idx) => (
             <div
               key={idx}
               data-aos="fade-up"
               data-aos-delay={idx * 150}
-              className={`group pricing-card relative bg-white rounded-lg overflow-hidden border border-[#D5C2A8] transition-all duration-500 ${unit.isPopular ? "lg:scale-105 z-20" : "z-10"}`}
+              className={`group relative bg-white border transition-all duration-500 ${unit.isPopular ? "lg:scale-105 z-20" : "z-10"}`}
+              style={{
+                borderColor: '#D5C2A8',
+                borderRadius: '0',
+                overflow: 'visible',
+                boxShadow: 'none'
+              }}
             >
+              <CurvedCorners />
+              
               {unit.isPopular && (
                 <div
                   className="absolute top-4 right-6 px-3 py-1 rounded-full text-white text-[9px] font-bold tracking-widest uppercase z-30"
-                  style={{ background: GOLD }}
+                  style={{ background: '#e05656' }}
                 >
                   Most Preferred
                 </div>
               )}
 
-              <div className="relative p-7 pb-4 border-b border-gray-50 pt-12">
+              <div className="relative p-8 pb-6 border-b border-[#EAE5D9] pt-14">
                 <div
-                  className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity"
-                  style={{ background: `linear-gradient(135deg, ${PRIMARY} 0%, transparent 100%)` }}
+                  className="absolute inset-0 opacity-30 transition-opacity"
+                  style={{ background: `linear-gradient(135deg, #FDF8F6 0%, transparent 100%)` }}
                 />
                 <h3
-                  className="text-xl font-bold mb-1 relative z-10"
-                  style={{ fontFamily: F_SANS, color: PRIMARY, letterSpacing: "0.02em" }}
+                  className="text-2xl font-bold mb-2 relative z-10 uppercase"
+                  style={{ fontFamily: F_JOST, color: '#3A2A0E', letterSpacing: "0.05em" }}
                 >
                   {unit.type}
                 </h3>
-                {unit.subtitle && (
-                  <p className="text-[15px] text-gray-500 relative z-10 mb-2 leading-tight" style={{ fontFamily: F_SANS }}>
+                {unit.subtitle ? (
+                  <p className="text-[15px] relative z-10 mb-2 leading-tight" style={{ fontFamily: F_SANS, color: '#684C1B' }}>
                     {unit.subtitle}
                   </p>
-                )}
-                {!unit.subtitle && (
+                ) : (
                   <div className="flex items-center gap-2 relative z-10">
-                    <span className="text-gray-400 text-[11px] uppercase tracking-wider" style={{ fontFamily: F_SANS }}>Size:</span>
-                    <p className="text-sm font-semibold" style={{ fontFamily: F_SANS, color: PRIMARY }}>
+                    <span className="text-[12px] uppercase tracking-wider font-semibold" style={{ fontFamily: F_SANS, color: '#9C846C' }}>Size:</span>
+                    <p className="text-[15px] font-semibold" style={{ fontFamily: F_SANS, color: '#3A2A0E' }}>
                       {unit.size}
                     </p>
                   </div>
                 )}
               </div>
 
-              <div className="p-7 pt-6">
-                <div className="mb-6">
-                  <span className="text-[10px] text-gray-400 uppercase tracking-[0.15em] font-medium block mb-1" style={{ fontFamily: F_SANS }}>Starting At</span>
-                  <div className="flex items-center gap-2 sm:gap-3 flex-nowrap whitespace-nowrap">
+              <div className="p-8 pt-8">
+                <div className="mb-8">
+                  <span className="text-[11px] uppercase tracking-[0.2em] font-semibold block mb-2" style={{ fontFamily: F_JOST, color: '#9C846C' }}>Starting At</span>
+                  <div className="flex items-center gap-3 flex-nowrap whitespace-nowrap">
                     {unit.oldPrice && (
-                      <span className="text-sm sm:text-lg line-through font-medium opacity-60" style={{ fontFamily: F_SANS, color: GOLD }}>
+                      <span className="text-lg line-through font-medium opacity-60" style={{ fontFamily: F_SANS, color: '#9C846C' }}>
                         {unit.oldPrice}
                       </span>
                     )}
-                    <p className="text-lg sm:text-2xl font-bold" style={{ fontFamily: F_SANS, color: GOLD }}>
+                    <p className="text-3xl font-bold" style={{ fontFamily: F_JOST, color: '#3A2A0E' }}>
                       {unit.price}
                     </p>
                   </div>
                 </div>
 
-                <div className="space-y-3 mb-8">
+                <div className="space-y-4 mb-10">
                   {['Unlock Pricing & Floor Plans', 'Attractive Payment Plan', 'Premium Luxury Residence'].map((feature, fIdx) => (
-                    <div key={fIdx} className="flex items-start gap-3">
-                      <div className="mt-1 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center bg-amber-50">
-                        <Check size={12} strokeWidth={3} style={{ color: GOLD }} />
+                    <div key={fIdx} className="flex items-start gap-4">
+                      <div className="mt-1 flex-shrink-0 flex items-center justify-center">
+                        <Check size={18} strokeWidth={2.5} style={{ color: '#9C846C' }} />
                       </div>
-                      <span className="text-gray-700 font-medium text-[14px]" style={{ fontFamily: F_SANS }}>{feature}</span>
+                      <span className="font-medium text-[15px]" style={{ fontFamily: F_SANS, color: '#3A2A0E' }}>{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 <button
                   onClick={() => setIsOpen(true)}
-                  className="btn-gold w-full py-3 text-sm tracking-widest uppercase transition-all duration-300"
-                  style={{ borderRadius: "1rem" }}
+                  className="btn-gold"
+                  style={{ width: '100%' }}
                 >
                   {unit.btnText}
                 </button>

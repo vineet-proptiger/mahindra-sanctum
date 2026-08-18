@@ -117,8 +117,7 @@ const ContactForm = () => {
       </label>
 
       <button type="submit" disabled={loading}
-        className="btn-gold w-full"
-        style={{ padding: '14px', marginTop: '4px' }}>
+        className="btn-gold" style={{ width: '100%', marginTop: '12px' }}>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
         </svg>
@@ -128,12 +127,25 @@ const ContactForm = () => {
   )
 }
 
+const CurvedCorners = ({ bg = '#ffffff' }) => {
+  const BORDER_COLOR = '#9C846C';
+  const corners = [
+    { top: '-1px', left: '-1px', borderRight: `1px solid ${BORDER_COLOR}`, borderBottom: `1px solid ${BORDER_COLOR}`, borderBottomRightRadius: '18px' },
+    { top: '-1px', right: '-1px', borderLeft: `1px solid ${BORDER_COLOR}`, borderBottom: `1px solid ${BORDER_COLOR}`, borderBottomLeftRadius: '18px' },
+    { bottom: '-1px', left: '-1px', borderRight: `1px solid ${BORDER_COLOR}`, borderTop: `1px solid ${BORDER_COLOR}`, borderTopRightRadius: '18px' },
+    { bottom: '-1px', right: '-1px', borderLeft: `1px solid ${BORDER_COLOR}`, borderTop: `1px solid ${BORDER_COLOR}`, borderTopLeftRadius: '18px' },
+  ]
+  return corners.map((c, i) => (
+    <span key={i} style={{ position: 'absolute', ...c, width: '22px', height: '22px', background: bg, display: 'block', zIndex: 10 }} />
+  ))
+}
+
 const AboutDeveloper = ({ setIsOpen }) => (
-  <section id="developer" className="py-10 sm:py-14 bg-[var(--color-bg-muted)] border-b border-gray-100">
+  <section id="developer" className="py-14 sm:py-20 bg-[#ffffff] border-b border-gray-100">
     <div className="container mx-auto px-4 md:px-8">
 
       {/* Heading */}
-      <div className="text-center mb-10" data-aos="fade-up">
+      <div className="text-center mb-12" data-aos="fade-up">
         <h2 style={{
           fontFamily: F_JOST, fontWeight: '700', fontSize: '17px',
           color: '#3A2A0E', letterSpacing: '0.1em',
@@ -145,78 +157,57 @@ const AboutDeveloper = ({ setIsOpen }) => (
       </div>
 
       {/* Two Column Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch max-w-6xl mx-auto">
 
         {/* Left — Developer Info Card */}
         <div style={{
           background: '#fff',
           display: 'flex', flexDirection: 'column', height: '100%',
-          borderRadius: '8px', overflow: 'hidden',
-          boxShadow: '0 4px 24px var(--color-shadow-card)',
-          border: '1px solid #D5C2A8',
+          position: 'relative',
+          border: '1px solid #9C846C',
         }} data-aos="fade-right" data-aos-delay="100">
+          <CurvedCorners bg="#ffffff" />
 
-          {/* Dark Header */}
+          {/* Light Header */}
           <div style={{
-            background: 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))',
-            padding: '18px 24px', position: 'relative', overflow: 'hidden',
+            background: '#FAF5F5',
+            padding: '24px 32px', position: 'relative',
+            borderBottom: '1px solid #D5C2A8'
           }}>
-            <div style={{
-              position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-              background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
-            }} />
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', position: 'relative' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', position: 'relative' }}>
               <div style={{
-                width: '42px', height: '42px', borderRadius: '10px', flexShrink: 0,
-                background: 'rgba(255,255,255,0.1)',
-                border: '1px solid rgba(255,255,255,0.15)',
+                width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0,
+                background: '#fff',
+                border: '1px solid #9C846C',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9C846C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                   <polyline points="9 22 9 12 15 12 15 22" />
                 </svg>
               </div>
               <div>
-                <h3 style={{ fontFamily: F_JOST, fontWeight: '800', fontSize: '18px', color: '#fff', margin: '0 0 4px', letterSpacing: '-0.01em' }}>
+                <h3 style={{ fontFamily: F_JOST, fontWeight: '700', fontSize: '20px', color: '#3A2A0E', margin: '0 0 4px', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
                   Mahindra Lifespaces
                 </h3>
-
               </div>
             </div>
           </div>
 
           {/* White Body */}
-          <div style={{ padding: '24px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              <p style={{ color: '#555', fontFamily: F_SANS, lineHeight: 1.85, fontSize: '14px', margin: '0 0 14px', textAlign: 'justify' }}>
+          <div style={{ padding: '32px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div>
+              <p style={{ color: '#3A2A0E', fontFamily: F_SANS, lineHeight: 1.85, fontSize: '15px', margin: '0 0 20px', textAlign: 'justify', opacity: 0.9 }}>
                 A part of the prestigious Mahindra Group of Companies, Mahindra Lifespaces is a real estate firm that builds quality residences, industrial complexes, &amp; even integrated cities. With a presence in 9 cities in India, the company has coupled its innovative technology with sustainable practices to deliver 43 residential projects in India.
               </p>
-              <p style={{ color: '#555', fontFamily: F_SANS, lineHeight: 1.85, fontSize: '14px', margin: '0 0 14px', textAlign: 'justify' }}>
+              <p style={{ color: '#3A2A0E', fontFamily: F_SANS, lineHeight: 1.85, fontSize: '15px', margin: '0 0 24px', textAlign: 'justify', opacity: 0.9 }}>
                 With Mahindra Sanctum, we are bringing our legacy of excellence to the vibrant heart of Pimpri, Pune. This flagship residential development is thoughtfully crafted to offer a sanctuary of peace amidst urban convenience. Featuring expansive terrace-style decks, cutting-edge smart home automation, and over 30 premium amenities, Mahindra Sanctum redefines contemporary luxury living.
               </p>
-
-            {/* Stats */}
-            {/* <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '22px' }}>
-              {[
-                { value: '437', label: 'Total Apartments' },
-                { value: '363', label: 'Apartments Sold' },
-                { value: '100', label: 'Amenities' },
-              ].map((stat, i) => (
-                <div key={i} style={{
-                  textAlign: 'center', padding: '14px 8px',
-                  background: 'var(--color-bg-muted)',
-                  borderRadius: '10px',
-                  border: '1px solid var(--color-gold-light)',
-                }}>
-                  <p style={{ fontSize: '22px', fontWeight: '800', color: GOLD_DARK, fontFamily: F_JOST, margin: 0 }}>{stat.value}</p>
-                  <p style={{ fontSize: '10px', color: '#888', fontFamily: F_SANS, marginTop: '4px', fontWeight: '600', textTransform: 'uppercase', lineHeight: 1.3 }}>{stat.label}</p>
-                </div>
-              ))}
-            </div> */}
+            </div>
 
             <button onClick={() => setIsOpen(true)}
               className="btn-gold"
-              style={{ padding: '11px 28px', fontSize: '13px', width: '100%' }}>
+              style={{ width: '100%' }}>
               Know More
             </button>
           </div>
@@ -224,35 +215,32 @@ const AboutDeveloper = ({ setIsOpen }) => (
 
         {/* Right — Contact Form */}
         <div style={{
-          background: '#fff', borderRadius: '8px',
-          boxShadow: '0 4px 24px var(--color-shadow-card)',
-          border: '1px solid #D5C2A8',
-          overflow: 'hidden',
+          background: '#fff',
+          position: 'relative',
+          border: '1px solid #9C846C',
           display: 'flex', flexDirection: 'column', height: '100%',
         }} data-aos="fade-left" data-aos-delay="200">
+          <CurvedCorners bg="#ffffff" />
 
           {/* Form Header */}
           <div style={{
-            background: 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))',
-            padding: '18px 24px', position: 'relative', overflow: 'hidden'
+            background: '#FDF8F6',
+            padding: '24px 32px', position: 'relative',
+            borderBottom: '1px solid #D5C2A8'
           }}>
-            <div style={{
-              position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-              background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
-            }} />
             <h3 style={{
-              fontFamily: F_JOST, fontWeight: '800', fontSize: '18px',
-              color: '#fff', margin: '0 0 4px', letterSpacing: '-0.01em'
+              fontFamily: F_JOST, fontWeight: '700', fontSize: '20px',
+              color: '#3A2A0E', margin: '0 0 6px', letterSpacing: '0.02em', textTransform: 'uppercase'
             }}>
               Book Site Visit Today
             </h3>
-            <p style={{ fontFamily: F_SANS, fontSize: '12px', color: 'rgba(255,255,255,0.6)', margin: 0 }}>
+            <p style={{ fontFamily: F_SANS, fontSize: '13px', color: '#684C1B', margin: 0, fontWeight: '500' }}>
               Register now to get the best deal &amp; book your site visit
             </p>
           </div>
 
           {/* Form Body */}
-          <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+          <div style={{ padding: '32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
             <ContactForm />
           </div>
         </div>
