@@ -300,19 +300,7 @@
     filter: drop-shadow(-6px 0 20px rgba(201, 169, 110, 0.35));
   }
 
-  /* ══ GLOBAL BUTTON OVERRIDE (Gold Gradient) ══ */
-  .btn-gold, .btn-gold-outline, .btn-primary, .btn-brand {
-    background: linear-gradient(90deg, #D4AF37 0%, #F9E08A 100%) !important;
-    color: #111827 !important;
-    border-color: transparent !important;
-    font-weight: 800 !important;
-  }
 
-  .btn-gold:hover, .btn-gold-outline:hover, .btn-primary:hover, .btn-brand:hover {
-    background: #ffffff !important;
-    color: #111827 !important;
-    border-color: #D4AF37 !important;
-  }
 
   /* ══ SECTION TITLE ══ */
   .section-title {

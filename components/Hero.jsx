@@ -327,12 +327,7 @@ const Hero = ({ setIsOpen }) => {
             box-shadow: none !important;
           }
           
-          .hero-cta-row > a.btn-brand {
-            background: linear-gradient(90deg, #D4AF37 0%, #F9E08A 100%) !important;
-            color: #111827 !important;
-            border-color: transparent !important;
-            font-weight: 800 !important;
-          }
+
 
           .hero-btn-one {
             color: #111827 !important;
