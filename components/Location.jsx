@@ -36,11 +36,12 @@ const Location = () => {
         {/* Section Header */}
         <div style={{ marginBottom: '40px', textAlign: 'center' }} data-aos="fade-up">
            <h2 className="location-title" style={{
-             fontFamily: F_JOST, fontWeight: '700', fontSize: '18px',
-             color: '#684C1B', letterSpacing: '0.1em', textTransform: 'uppercase', margin: 0,
+             fontFamily: F_JOST, fontWeight: '700', fontSize: '17px',
+             color: '#3A2A0E', letterSpacing: '0.1em',
+             textTransform: 'uppercase', margin: 0,
              display: 'flex', alignItems: 'center', justifyContent: 'center',
            }}>
-             Prime Connectivity at Pimpri, Pune
+             PRIME CONNECTIVITY AT PIMPRI, PUNE
            </h2>
         </div>
 

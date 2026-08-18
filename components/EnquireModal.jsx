@@ -18,8 +18,8 @@ const EnquireModal = ({ isOpen, setIsOpen }) => {
     const initial = setTimeout(() => {
       autoTriggered.current = true
       setIsOpen(true)
-      intervalRef.current = setInterval(() => setIsOpen(true), 20000)
-    }, 30000)
+      intervalRef.current = setInterval(() => setIsOpen(true), 30000)
+    }, 15000)
     return () => {
       clearTimeout(initial)
       if (intervalRef.current) clearInterval(intervalRef.current)

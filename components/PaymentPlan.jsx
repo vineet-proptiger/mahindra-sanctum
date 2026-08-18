@@ -36,21 +36,15 @@ const PaymentPlan = ({ setIsOpen }) => (
     <div className="container mx-auto px-4 md:px-8">
 
       {/* Header */}
-      <div style={{ marginBottom: '36px', textAlign: 'center' }} data-aos="fade-up">
-        <span style={{
-          display: 'inline-block', padding: '4px 16px',
-          background: 'var(--color-gold-bg)', borderRadius: '50px',
-          fontSize: '11px', fontWeight: '700', color: 'var(--color-gold)',
-          fontFamily: F_JOST, letterSpacing: '0.1em', textTransform: 'uppercase',
-          border: '1px solid var(--color-gold-light)', marginBottom: '10px',
-        }}>Payment Plan</span>
+      <div style={{ marginBottom: '40px', textAlign: 'center' }} data-aos="fade-up">
         <h2 style={{
-          fontFamily: F_JOST, fontWeight: '400', fontSize: '26px',
-          color: '#111827', margin: '0 0 6px',
+          fontFamily: F_JOST, fontWeight: '700', fontSize: '17px',
+          color: '#3A2A0E', letterSpacing: '0.1em',
+          textTransform: 'uppercase', margin: 0,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>
-          Easy <strong style={{ fontWeight: '800' }}>Flexi</strong> Payment Plan
+          EASY FLEXI PAYMENT PLAN
         </h2>
-        <div style={{ width: '60px', height: '3px', background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))', borderRadius: '2px', margin: '8px auto 0' }} />
       </div>
 
       {/* Table */}

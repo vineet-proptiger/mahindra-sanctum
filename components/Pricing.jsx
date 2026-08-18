@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 
 const F_SANS = "var(--font-sans), Open Sans, sans-serif";
+const F_JOST = "var(--font-jost), Montserrat, sans-serif";
 const GOLD = "var(--color-gold)";
 const PRIMARY = "var(--color-primary)";
 
@@ -63,27 +64,19 @@ const Pricing = ({ setIsOpen }) => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16" data-aos="fade-up">
-          <span style={{
-            display: "inline-block", padding: "4px 16px",
-            background: "var(--color-gold-bg)", borderRadius: "50px",
-            fontSize: "11px", fontWeight: "700", color: "var(--color-gold)",
-            fontFamily: "var(--font-jost), Montserrat, sans-serif",
-            letterSpacing: "0.1em", textTransform: "uppercase",
-            border: "1px solid var(--color-gold-light)", marginBottom: "10px",
+          <h2 style={{
+            fontFamily: F_JOST, fontWeight: '700', fontSize: '17px',
+            color: '#3A2A0E', letterSpacing: '0.1em',
+            textTransform: 'uppercase', margin: 0,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>
-            LUXURY RESIDENCES
-          </span>
-          <h2
-            className="font-bold mb-4"
-            style={{ fontFamily: "var(--font-jost), Montserrat, sans-serif", color: PRIMARY, fontSize: "26px", letterSpacing: "-0.01em" }}
-          >
-            Configurations &amp; <span style={{ color: GOLD }}>Pricing</span>
+            CONFIGURATIONS &amp; PRICING
           </h2>
           {/* <p style={{ fontFamily: F_SANS, fontSize: "13px", color: "#6b7280", marginBottom: "4px" }}>
             Mahindra Sanctum offers thoughtfully crafted homes designed for modern urban living
           </p> */}
 
-          <div className="w-20 h-1 mx-auto rounded-full mb-4" style={{ background: GOLD }} />
+
           {/* <p style={{ fontFamily: F_SANS, fontSize: "13px", color: "#6b7280", marginBottom: "4px" }}>
             Phase 5 Launch Expected
           </p>

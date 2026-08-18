@@ -35,6 +35,9 @@ const nephilm = localFont({
 export const metadata = {
   title: 'Mahindra Sanctum | Premium 2 & 3 BHK Homes in Pimpri, Pune',
   description: "Mahindra Sanctum — Premium 2 & 3 BHK Homes in Pimpri, Pune. Excellent Metro & Highway Connectivity. Book Now & Avail Launch Benefits.",
+  icons: {
+    icon: '/images/favicon/fav.webp',
+  },
 }
 
 export default function RootLayout({ children }) {

@@ -2,8 +2,8 @@
 
 const F_SANS = 'var(--font-sans), Open Sans, sans-serif'
 const F_JOST = 'var(--font-jost), Montserrat, sans-serif'
-const BORDER_COLOR = '#D5C2A8'
-const BG = 'var(--color-cream-bg)' // #EAE5D9
+const BORDER_COLOR = '#9C846C'
+const BG = '#FAF5F5'
 
 
 /* Curved concave notch at each corner of the border box */
@@ -51,8 +51,8 @@ const CurvedCorners = ({ bg = BG }) => {
 
 /* SVG icons */
 const IconBuilding = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-    stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M3 21h18" />
     <path d="M5 21V7l7-4 7 4v14" />
     <path d="M9 21v-4h6v4" />
@@ -61,57 +61,57 @@ const IconBuilding = () => (
   </svg>
 )
 const IconTrees = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-    stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 22V12" />
     <path d="M7 12l5-5 5 5" />
     <path d="M5 17l7-7 7 7" />
   </svg>
 )
 const IconHome = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-    stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
     <polyline points="9 22 9 12 15 12 15 22" />
   </svg>
 )
 const IconSmart = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-    stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="3" width="20" height="14" rx="2" />
     <path d="M8 21h8M12 17v4" />
     <path d="M9 9l2 2 4-4" />
   </svg>
 )
 const IconMountain = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-    stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M8 3l4 8 5-5 5 15H2L8 3z" />
   </svg>
 )
 const IconSunCloud = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-    stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
     <path d="M16 12a4 4 0 0 0-8 0" />
     <path d="M5 18a4 4 0 0 1 3.5-3.9 6 6 0 0 1 11-.1 4 4 0 0 1-2.5 7.9H8a4 4 0 0 1-3-4" />
   </svg>
 )
 const IconWind = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-    stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
   </svg>
 )
 const IconLightning = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-    stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
   </svg>
 )
 const IconWaves = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-    stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
   </svg>
 )
@@ -123,8 +123,6 @@ const highlights = [
   { title: 'Smart Homes', desc: 'Smart home features — smart door lock, video doorbell, smart BLDC fans', Icon: IconSmart },
   { title: 'Walk-in Wardrobes', desc: 'Walk-in wardrobes in master bedroom', Icon: IconSunCloud },
   { title: 'Natural Light', desc: 'Maximum natural light and cross-ventilation in every room', Icon: IconWind },
-  { title: 'Premium Quality', desc: 'Premium quality finishes and specifications', Icon: IconMountain },
-  { title: 'Launch Benefits', desc: 'Book Now & Avail Launch Benefits', Icon: IconLightning },
 ]
 
 const Highlights = ({ setIsOpen }) => (
@@ -135,7 +133,7 @@ const Highlights = ({ setIsOpen }) => (
       <div style={{ textAlign: 'center', marginBottom: '40px' }} data-aos="fade-up">
         <h2 style={{
           fontFamily: F_JOST, fontWeight: '700', fontSize: '17px',
-          color: '#684C1B', letterSpacing: '0.1em',
+          color: '#3A2A0E', letterSpacing: '0.1em',
           textTransform: 'uppercase', margin: 0,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>
@@ -150,24 +148,28 @@ const Highlights = ({ setIsOpen }) => (
         style={{
           position: 'relative',
           border: `1px solid ${BORDER_COLOR}`,
-          overflow: 'hidden',
         }}
       >
         <CurvedCorners bg={BG} />
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-[1px]" style={{ background: BORDER_COLOR }}>
-          {highlights.map(({ title, desc, Icon }, i) => (
-            <div key={i} style={{
-              padding: '36px 20px 28px',
-              textAlign: 'center',
-              background: BG,
-            }}>
-              {/* Dark red circle */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[1px]" style={{ background: BORDER_COLOR }}>
+          {highlights.map(({ title, desc, Icon }, i) => {
+            const bgColors = ['#FDF8F6', '#FFFDF2', '#F4FAF4', '#F2FAFD', '#FCF4F4', '#F4F7FC'];
+            return (
+              <div key={i} style={{
+                padding: '36px 20px 28px',
+                textAlign: 'center',
+                background: bgColors[i % 6],
+              }}>
+                {/* White circle with soft shadow, red border, and dark brown icon */}
               <div style={{
                 width: '80px', height: '80px', borderRadius: '50%',
-                background: 'var(--color-brand)',
+                background: '#fff',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.06)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 margin: '0 auto 24px',
+                color: '#3A2A0E', // Dark brown color matching the headings
+                border: '1.5px solid #d32f2f'
               }}>
                 <Icon />
               </div>
@@ -186,7 +188,8 @@ const Highlights = ({ setIsOpen }) => (
                 lineHeight: 1.65, margin: 0,
               }}>{desc}</p>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

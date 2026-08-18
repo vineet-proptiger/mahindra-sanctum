@@ -58,8 +58,9 @@ const Gallery = ({ setIsOpen }) => {
           <div className="flex items-center justify-center">
             <ArcIcon />
             <h2 style={{
-              fontFamily: F_JOST, fontWeight: '700', fontSize: '18px',
-              color: '#684C1B', letterSpacing: '0.1em', textTransform: 'uppercase', margin: 0,
+              fontFamily: F_JOST, fontWeight: '700', fontSize: '17px',
+              color: '#3A2A0E', letterSpacing: '0.1em',
+              textTransform: 'uppercase', margin: 0,
             }} className="text-center">MAHINDRA SANCTUM GALLERY</h2>
           </div>
         </div>

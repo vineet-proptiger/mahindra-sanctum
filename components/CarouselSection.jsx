@@ -17,7 +17,8 @@ const CarouselSection = ({ setIsOpen }) => {
     galleryImages[numItems - 1],
     ...galleryImages,
     galleryImages[0],
-    galleryImages[1]
+    galleryImages[1] || galleryImages[0],
+    galleryImages[2] || galleryImages[0]
   ].filter(Boolean);
 
   const getRealIndex = (idx) => {
@@ -50,22 +51,31 @@ const CarouselSection = ({ setIsOpen }) => {
 
   const nextSlide = () => {
     if (!isTransitioning) return;
-    setIndex((prev) => prev + 1);
+    setIndex((prev) => {
+      if (prev >= numItems + 1) return prev;
+      return prev + 1;
+    });
     setUserInteracted(Date.now());
   }
 
   const prevSlide = () => {
     if (!isTransitioning) return;
-    setIndex((prev) => prev - 1);
+    setIndex((prev) => {
+      if (prev <= 0) return prev;
+      return prev - 1;
+    });
     setUserInteracted(Date.now());
   }
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((prev) => prev + 1);
+      setIndex((prev) => {
+        if (prev >= numItems + 1) return prev;
+        return prev + 1;
+      });
     }, 4000); // Autoplay every 4s
     return () => clearInterval(timer);
-  }, [userInteracted]);
+  }, [userInteracted, numItems]);
 
   // Handle the seamless jump
   useEffect(() => {
@@ -139,8 +149,8 @@ const CarouselSection = ({ setIsOpen }) => {
           </div>
         </div>
 
-        {/* ── Main Sliding Track Gallery (Premium & Zero-Flash) ── */}
-        <div className="relative w-full overflow-hidden rounded-lg carousel-container">
+        {/* ── Main Sliding Track Gallery (Desktop & Tablet) ── */}
+        <div className="relative w-full overflow-hidden rounded-lg carousel-container hidden md:block">
           <style dangerouslySetInnerHTML={{ __html: `
             .carousel-container { --slide-w: 100%; }
             @media (min-width: 768px) { .carousel-container { --slide-w: 65%; } }
@@ -173,7 +183,6 @@ const CarouselSection = ({ setIsOpen }) => {
                 <div className="absolute bottom-0 left-0 right-0 p-3 md:p-8 lg:p-10 pb-5 md:pb-10 flex flex-col justify-end"
                      style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)', minHeight: '40%' }}>
                     <h3 className="text-white text-base md:text-2xl font-bold mb-1 tracking-wide" style={{ fontFamily: F_JOST }}>{img.title}</h3>
-                    <p className="text-white/90 text-[11px] md:text-base leading-snug md:leading-relaxed max-w-2xl font-sans">{img.desc}</p>
                     
                     {/* Progress Bar Container */}
                     <div className="absolute bottom-0 left-0 right-0 h-1 md:h-1.5 bg-white/20">
@@ -201,8 +210,33 @@ const CarouselSection = ({ setIsOpen }) => {
           </div>
         </div>
 
+        {/* ── Mobile View: All Images Stacked One by One ── */}
+        <div className="flex flex-col gap-4 md:hidden w-full">
+          {galleryImages.map((img, idx) => (
+            <div 
+              key={idx} 
+              className="relative w-full overflow-hidden rounded-lg cursor-pointer group bg-gray-200"
+              style={{ aspectRatio: '16/9' }}
+              onClick={() => setSelectedImgIndex(idx)}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt || `Gallery Image ${idx + 1}`}
+                fill
+                sizes="100vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              />
+              {/* Image Overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 pb-5 flex flex-col justify-end"
+                   style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)', minHeight: '30%' }}>
+                  <h3 className="text-white text-[15px] font-bold tracking-wide" style={{ fontFamily: F_JOST }}>{img.title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* ── Bottom Arrows ── */}
-        <div className="flex items-center gap-3 mt-6 ml-2">
+        <div className="hidden md:flex items-center gap-3 mt-6 ml-2">
           <button onClick={prevSlide} className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-600 hover:bg-gray-200 transition-colors">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="19" y1="12" x2="5" y2="12" />

@@ -10,22 +10,13 @@ export default function QuickChat() {
       <div className="container mx-auto px-4 md:px-8 max-w-[1200px]">
         {/* Section Header */}
         <div style={{ marginBottom: '40px', textAlign: 'center' }} data-aos="fade-up">
-          <span style={{
-            display: "inline-block", padding: "4px 16px",
-            background: "var(--color-gold-bg)", borderRadius: "50px",
-            fontSize: "11px", fontWeight: "700", color: "var(--color-gold)",
-            fontFamily: "var(--font-jost), Montserrat, sans-serif",
-            letterSpacing: "0.1em", textTransform: "uppercase",
-            border: "1px solid var(--color-gold-light)", marginBottom: "14px",
-          }}>
-            QUICK CONNECT
-          </span>
           <h2 style={{
-            fontFamily: F_JOST, fontWeight: '700', fontSize: '18px',
-            color: '#684C1B', letterSpacing: '0.1em', textTransform: 'uppercase', margin: 0,
-            display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap'
+            fontFamily: F_JOST, fontWeight: '700', fontSize: '17px',
+            color: '#3A2A0E', letterSpacing: '0.1em',
+            textTransform: 'uppercase', margin: 0,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>
-            Reply in one tap — get it on WhatsApp
+            REPLY IN ONE TAP — GET IT ON WHATSAPP
           </h2>
         </div>
 
