@@ -137,7 +137,7 @@ const Overview = ({ setIsOpen }) => (
               width={1000}
               height={1200}
               className="rounded-lg shadow-lg"
-              style={{ width: '75%', height: 'auto', objectFit: 'contain', margin: '0 auto' }}
+              style={{ width: '85%', height: 'auto', objectFit: 'contain', margin: '0 auto' }}
             />
           </div>
         </div>

@@ -265,7 +265,7 @@ const Hero = ({ setIsOpen }) => {
             height: auto !important;
             display: flex !important;
             flex-direction: column !important;
-            background: #FFF9E6 !important;
+            background: #ffffff !important;
           }
           
           .desktop-carousel { display: none !important; }
@@ -417,7 +417,7 @@ const Hero = ({ setIsOpen }) => {
         {/* Price Line (Moved just above buttons) */}
         <p className="hero-price-line">
           Premium 2 &amp; 3 BHK Homes Starting at&nbsp;
-          <span className="hero-price-amt">₹ 1.09 Cr*</span>
+          <span className="hero-price-amt">₹ 1.02 Cr*</span>
         </p>
 
         {/* CTA Row */}

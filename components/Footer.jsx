@@ -21,7 +21,7 @@ const Footer = () => (
       </div>
       <p style={{ fontSize: '15px', color: '#555', fontFamily: F_SANS, lineHeight: 1.8, marginBottom: '24px', textAlign: 'justify' }}
         data-aos="fade-in" data-aos-delay="100">
-        Mahindra Sanctum is Pune&apos;s premier luxury high-rise residential development in Pimpri, offering premium 2 &amp; 3 BHK residences starting from ₹1.09 Cr*. Thoughtfully curated amenities, iconic skyline views, advanced security, and smart home features — Mahindra Sanctum is designed for those who demand the extraordinary.
+        Mahindra Sanctum is Pune&apos;s premier luxury high-rise residential development in Pimpri, offering premium 2 &amp; 3 BHK residences starting from ₹1.02 Cr*. Thoughtfully curated amenities, iconic skyline views, advanced security, and smart home features — Mahindra Sanctum is designed for those who demand the extraordinary.
       </p>
     </div>
 
