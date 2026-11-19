@@ -438,11 +438,10 @@ const Hero = ({ setIsOpen }) => {
             </svg>
           </button>
 
-          {/* Button 2 — WhatsApp (global btn-brand) */}
-          <a
-            href="https://wa.me/919560582493?text=Hi%20I%20am%20interested%20in%20Mahindra%20Sanctum%20Pimpri%20Pune"
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Button 2 — Schedule Site Visit (Popup modal) */}
+          <button
+            type="button"
+            onClick={() => setIsOpen(true)}
             className="btn-brand"
             style={{ fontSize: '12px', padding: '11px 22px' }}
           >
@@ -454,7 +453,7 @@ const Hero = ({ setIsOpen }) => {
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
             Schedule Site Visit
-          </a>
+          </button>
 
         </div>
 
